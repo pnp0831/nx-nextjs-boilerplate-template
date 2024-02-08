@@ -2,7 +2,11 @@
   "name": "sstvn.client",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "nx dev esp",
+    "build": "nx build esp",
+    "dockerize": "nx container esp"
+  },
   "private": true,
   "dependencies": {
     "next": "14.1.0",

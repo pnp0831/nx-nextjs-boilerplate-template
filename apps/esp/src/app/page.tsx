@@ -10,7 +10,7 @@ export default function Index() {
   return (
     <div>
       <Uikit />
-      <Image src="/icons/avatar.png" alt="s" width={30} height={30} />
+      <Image src="/icons/logo.png" alt="logo" width={150} height={120} />
       home page
     </div>
   );

@@ -13,7 +13,7 @@
       },
       "configurations": {
         "production": {
-          "outputPath": "dist/apps/esp"
+          "outputPath": "dist"
         }
       }
     },
