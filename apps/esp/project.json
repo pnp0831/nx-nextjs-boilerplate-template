@@ -1,0 +1,39 @@
+{
+  "name": "esp",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/esp",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist"
+      },
+      "configurations": {
+        "production": {
+          "outputPath": "dist/apps/esp"
+        }
+      }
+    },
+    "container": {
+      "executor": "@nx-tools/nx-container:build",
+      "defaultConfiguration": "local",
+      "options": {
+        "engine": "docker",
+        "metadata": {
+          "images": ["esp"],
+          "load": true
+        }
+      },
+      "configurations": {
+        "local": {
+          "tags": ["esp:latest"],
+          "push": false
+        }
+      }
+    }
+  },
+  "tags": []
+}
