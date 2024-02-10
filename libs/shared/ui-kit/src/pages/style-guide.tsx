@@ -41,7 +41,7 @@ import { useNotify } from '@ui-kit/contexts/notify-context';
 import { ESP_COLORS, ESP_TYPOGRAPHY, Size } from '@ui-kit/theme';
 import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
-import { Fragment, useState } from 'react';
+import { Fragment, ReactNode, useState } from 'react';
 
 const ESPEditor = dynamic(() => import('@ui-kit/components/editor').then((mod) => mod.ESPEditor), {
   ssr: false,
@@ -172,7 +172,7 @@ const tabs_content = [
   },
 ];
 
-function StyleGuide({ children }) {
+function StyleGuide({ children }: { children: ReactNode }) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
