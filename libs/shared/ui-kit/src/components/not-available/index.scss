@@ -1,0 +1,13 @@
+.esp-not-avaliable {
+  position: relative;
+  width: 100%;
+  display: grid;
+  place-items: center;
+
+  p {
+    position: absolute;
+    bottom: 0;
+    color: var(--black-muted-color);
+    font-size: 0.875em;
+  }
+}

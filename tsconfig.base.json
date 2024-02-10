@@ -18,7 +18,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@sstvn/ui-kit/*": ["libs/shared/ui-kit/src/*"]
+      "@esp/*": ["apps/esp/src/*"],
+      "@ui-kit/*": ["libs/shared/ui-kit/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

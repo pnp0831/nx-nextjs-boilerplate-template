@@ -1,6 +1,6 @@
 {
-  "extends": ["plugin:@nx/react", "../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*"],
+  "extends": ["plugin:@nx/react", "../../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*", "*.spec.ts", "*.spec.tsx"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -13,6 +13,12 @@
     {
       "files": ["*.js", "*.jsx"],
       "rules": {}
+    },
+    {
+      "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
+      "env": {
+        "jest": true
+      }
     }
   ]
 }

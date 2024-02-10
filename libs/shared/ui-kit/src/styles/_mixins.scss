@@ -1,0 +1,145 @@
+@import './variables';
+
+@mixin typo_h1 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  font-weight: 900;
+}
+
+@mixin typo_h2 {
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: 900;
+}
+
+@mixin typo_h3 {
+  font-size: 1.6875rem;
+  line-height: 2rem;
+  font-weight: 900;
+}
+
+@mixin typo_h4 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 900;
+}
+
+@mixin typo_bold_xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+@mixin typo_bold_l {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+}
+
+@mixin typo_bold_m {
+  font-size: 0.875rem;
+  line-height: 1rem;
+  font-weight: 700;
+}
+
+@mixin typo_bold_s {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+}
+
+@mixin typo_paragraph {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  font-weight: 400;
+}
+
+@mixin typo_regular_l {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+@mixin typo_regular_m {
+  font-size: 0.875rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+@mixin typo_regular_s {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+@mixin responsive-up($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin responsive-down($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin responsive-sm-up {
+  @media (min-width: $sm-width) {
+    @content;
+  }
+}
+
+@mixin responsive-sm-down {
+  @media (max-width: $sm-width) {
+    @content;
+  }
+}
+
+@mixin responsive-md-up {
+  @media (min-width: $md-width) {
+    @content;
+  }
+}
+
+@mixin responsive-md-down {
+  @media (max-width: $md-width) {
+    @content;
+  }
+}
+
+@mixin responsive-lg-up {
+  @media (min-width: $lg-width) {
+    @content;
+  }
+}
+
+@mixin responsive-lg-down {
+  @media (max-width: $lg-width) {
+    @content;
+  }
+}
+
+@mixin responsive-xl-up {
+  @media (min-width: $xl-width) {
+    @content;
+  }
+}
+
+@mixin responsive-xl-down {
+  @media (max-width: $xl-width) {
+    @content;
+  }
+}
+
+@mixin responsive-between($minWidth, $maxWidth) {
+  @media (min-width: $minWidth) and (max-width: $maxWidth) {
+    @content;
+  }
+}
+
+@mixin responsive-small-screen {
+  @media (min-width: $lg-width) and (max-width: $xl-width) and (min-height: 300px) and (max-height: 680px) {
+    @content;
+  }
+}

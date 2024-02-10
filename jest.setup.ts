@@ -4,7 +4,14 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 
+import dayjs from 'dayjs';
+import isBetweenPlugin from 'dayjs/plugin/isBetween';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+
 import { TextEncoder, TextDecoder } from 'util';
+
+dayjs.extend(isBetweenPlugin);
+dayjs.extend(isSameOrBefore);
 
 class Worker {
   url: string;
@@ -34,3 +41,12 @@ Object.assign(global, 'window', {
 });
 
 type MessageHandler = (msg: string) => void;
+
+jest.mock('next/font/google', () => ({
+  ...jest.requireActual('next/font/google'),
+  Lato: jest.fn().mockReturnValue({
+    style: {
+      fontFamily: 'Lato',
+    },
+  }),
+}));

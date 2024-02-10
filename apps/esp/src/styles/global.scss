@@ -1,0 +1,115 @@
+@import '/libs/shared/ui-kit/src/styles/_variables.scss';
+@import '/libs/shared/ui-kit/src/styles/_mixins.scss';
+
+:root {
+  --primary-color: #ff5308;
+  --green-color: #3ca455;
+  --orange-color: #e67337;
+  --red-color: #c84040;
+  --text-color: #110f24;
+  --gray-dark-color: #ccced0;
+  --gray-medium-color: #ececee;
+  --gray-light-color: #f6f6f9;
+  --black-color: #333333;
+  --products-color: #9a381f;
+  --white-color: white;
+  --black-muted-color: rgba(17, 15, 36, 0.4);
+  --white-muted-color: rgba(255, 255, 255, 0.4);
+  --background: #f2f2f2;
+  --boxshadow-small: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar:horizontal {
+  width: 0.375rem;
+  height: 0.375rem;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--gray-medium-color);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--black-muted-color);
+  border-radius: 9999px;
+}
+
+.scrollbar-trigger-visibility {
+  &::-webkit-scrollbar-thumb,
+  &::-webkit-scrollbar-track {
+    visibility: hidden;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb,
+    &::-webkit-scrollbar-track {
+      visibility: visible;
+    }
+  }
+}
+
+.scrollbar-trigger-overflow {
+  overflow: hidden !important;
+
+  &:hover {
+    overflow: auto !important;
+  }
+
+  &_hidden-y:hover {
+    overflow-y: hidden !important;
+  }
+
+  &__hidden-x:hover {
+    overflow-x: hidden !important;
+  }
+}
+
+@include responsive-between($lg-width, $xl-width) {
+  html {
+    // font-size: 14px;
+  }
+}
+
+@include responsive-small-screen {
+  html {
+    font-size: 13px;
+  }
+
+  .MuiDialog-root.MuiModal-root {
+    top: -10vh;
+  }
+}
+
+.flying-icon {
+  z-index: 10000;
+  width: 1.875rem;
+  height: 1.875rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  border-radius: 50%;
+  background: white;
+}
+
+.ml-025 {
+  margin-left: 0.25rem;
+}
+
+.mr-025 {
+  margin-right: 0.25rem;
+}

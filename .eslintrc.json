@@ -9,6 +9,7 @@
         "@nx/enforce-module-boundaries": [
           "error",
           {
+            "allowCircularSelfDependency": true,
             "enforceBuildableLibDependency": true,
             "allow": [],
             "depConstraints": [
@@ -35,8 +36,7 @@
             "caughtErrorsIgnorePattern": "^_"
           }
         ],
-
-        "@typescript-eslint/no-empty-function": "warn",
+        "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/ban-ts-comment": "warn"
       }
     },

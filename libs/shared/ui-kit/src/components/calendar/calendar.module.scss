@@ -1,0 +1,155 @@
+.calendarContainer {
+  width: max-content;
+  border: 1px solid #ccc;
+  overflow: hidden;
+
+  .calendarHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1.25rem;
+  }
+
+  .calendarToolbars {
+    display: flex;
+    align-items: center;
+
+    .calendarArrow {
+      border: 1px solid #e2e2ea;
+      border-radius: 8px;
+      height: 2rem;
+      width: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      svg {
+        color: #92929d;
+      }
+
+      &:hover {
+        filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+      }
+    }
+  }
+
+  .calendarWeekdays {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    .weekday {
+      text-align: center;
+      color: #92929d;
+    }
+  }
+
+  .calendarDays {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    padding-top: 0.75rem;
+
+    .day {
+      position: relative;
+      height: 2.875rem;
+      width: 2.875rem;
+      margin: 0 0.5rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border: 2px solid transparent;
+      user-select: none;
+
+      > p {
+        z-index: 1;
+      }
+
+      &.empty {
+        cursor: unset;
+      }
+
+      &.selected {
+        color: #ff5308;
+
+        p {
+          font-weight: bold;
+        }
+      }
+
+      &.today {
+        color: #ff5308;
+      }
+
+      &.disabled {
+        cursor: not-allowed;
+      }
+
+      .dot {
+        background: #ff5308;
+        width: 0.25rem;
+        height: 0.25rem;
+        position: absolute;
+        bottom: 0.3125rem;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50%;
+      }
+
+      .holidays {
+        position: absolute;
+        bottom: -0.6rem;
+        left: 50%;
+        transform: translateX(-50%);
+
+        svg {
+          width: 0.8em;
+          height: 0.8em;
+        }
+      }
+
+      &:hover:not(.disabled) {
+        p,
+        strong,
+        .dot,
+        .holidays {
+          display: none;
+        }
+
+        .dayEvent {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      .dayEvent {
+        display: none;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+
+        .overlay {
+          background: #ff5308;
+          opacity: 0.2;
+          border-radius: 0.625rem;
+          width: 100%;
+          height: 100%;
+        }
+
+        svg {
+          position: absolute;
+          border: 2px solid white;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

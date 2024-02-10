@@ -1,0 +1,42 @@
+@import '../../styles/_mixins.scss';
+@import '../../styles/_variables.scss';
+
+.table-enhancement {
+  .table-scrollbar::-webkit-scrollbar-track {
+    margin-top: 3rem;
+  }
+
+  &__no-header .table-scrollbar::-webkit-scrollbar-track {
+    margin-top: 0
+  }
+
+
+
+  .resize-handle {
+    width: 4px;
+    height: 1.5rem;
+    opacity: 0.3;
+    cursor: col-resize;
+    background-color: rgba(0, 0, 0, 0.12);
+    z-index: 1;
+    margin-right: 0.313rem;
+    // margin-right: 0.75em;
+    border-radius: 0.25rem;
+    position: absolute;
+    right: 0;
+    transition: 0.3 opacity;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &_action {
+    display: flex;
+    gap: 1rem;
+
+    @include responsive-down($lg-width) {
+      flex-direction: column;
+    }
+  }
+}
