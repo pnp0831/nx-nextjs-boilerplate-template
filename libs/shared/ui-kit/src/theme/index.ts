@@ -195,5 +195,39 @@ export const theme = createTheme({
         },
       },
     },
+    MuiButtonBase: {
+      defaultProps: {
+        // The props to change the default for.
+        disableRipple: true, // No more ripple, on the whole application 💣!
+      },
+    },
+    MuiCheckbox: {
+      defaultProps: {
+        // The props to change the default for.
+        disableRipple: true, // No more ripple, on the whole application 💣!
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+        size: 'medium',
+      },
+    },
+    MuiInput: {
+      defaultProps: {
+        size: 'medium',
+      },
+    },
+    MuiIcon: {
+      defaultProps: {
+        fontSize: 'small',
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          color: ESP_COLORS.BLACK,
+        },
+      },
+    },
   },
 });

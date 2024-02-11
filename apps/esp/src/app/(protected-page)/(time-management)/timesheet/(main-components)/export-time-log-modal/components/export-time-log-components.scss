@@ -1,0 +1,92 @@
+@import 'apps/esp/src/styles/_variables.scss';
+
+.esp-export-detail-units {
+  margin-top: 0.7rem;
+  padding: 0.75rem 0.7rem 0.5rem 0.7rem;
+  border-radius: 0.5rem;
+  background-color: $gray-light-color;
+
+  &_form {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    &_control {
+      margin-bottom: 0.5rem;
+
+      &_label {
+        margin-left: 0;
+      }
+    }
+
+    &_checkbox {
+      padding: 0.2rem 0.5rem 0.2rem 0.2rem;
+    }
+  }
+}
+
+.esp-export-detail-period {
+  margin-top: 0.7rem;
+
+  &_headline {
+    position: relative;
+
+    &::after {
+      margin-left: 0.25rem;
+      content: '*';
+      position: absolute;
+      color: rgb(200, 64, 64);
+      top: 0;
+    }
+  }
+
+  &_options {
+    display: grid;
+    grid-template-columns: 2fr 0fr 2fr;
+    margin-top: '0.5rem';
+  }
+
+  &_text {
+    padding: 0 0.7rem;
+    margin: auto;
+  }
+
+  &_datePicker {
+    width: 100%;
+  }
+}
+
+.esp-export-detail-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.5rem;
+  padding-bottom: 1.25rem;
+  margin-top: 1.25rem;
+
+  &_submit {
+    margin-left: 0.5rem;
+  }
+}
+
+.esp-export-pending-modal {
+  &_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &_link {
+    color: #333333;
+    margin: 0 0.25rem;
+  }
+
+  &_action {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.6rem;
+    padding-bottom: 1.25rem;
+
+    &_submit {
+      min-width: 6.875rem;
+    }
+  }
+}

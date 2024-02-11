@@ -1,0 +1,63 @@
+.time-input {
+  input[type='time']::-webkit-calendar-picker-indicator {
+    background: none;
+  }
+
+  input[type='time']::-webkit-datetime-edit-ampm-field {
+    display: none;
+  }
+
+  .MuiTextField-root {
+    max-width: 6.25rem;
+  }
+
+  .MuiInputBase-adornedEnd {
+    padding-right: 0;
+  }
+}
+
+button.MuiButtonBase-root.esp-timesheet-btn-apply {
+  margin-left: 1.25rem;
+}
+
+.esp-timesheet-fake-action {
+  height: 4rem;
+}
+
+.esp-configs-wrapper {
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-left: 0.25rem;
+  }
+}
+
+.esp-timesheet-info-box {
+  align-content: center;
+  max-height: 1rem;
+
+  .task-code {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+
+  .task-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    max-width: 10rem;
+    word-break: break-all;
+  }
+}
+
+.esp-timesheet-calendar {
+  &::after {
+    border-radius: 0.5rem;
+  }
+}

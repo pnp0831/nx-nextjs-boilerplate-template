@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
     return sendResponse401ToClient();
   }
 
-  // @ts-expect-error
+  // @ts-expect-error: IGNORE
   const updatedToken = await authOptions.callbacks.jwt({
     token,
   });
@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
     return sendResponse401ToClient();
   }
 
-  // @ts-expect-error
+  // @ts-expect-error: IGNORE
   const updatedSession = await authOptions.callbacks?.session({
     token: updatedToken,
     session: {

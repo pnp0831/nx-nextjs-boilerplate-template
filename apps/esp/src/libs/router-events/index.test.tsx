@@ -9,6 +9,7 @@ jest.mock('@ui-kit/hooks/usePrevious', () => jest.fn());
 jest.mock('next/navigation', () => ({
   usePathname: jest.fn(),
   useSearchParams: jest.fn(),
+  useServerInsertedHTML: jest.fn(),
 }));
 
 jest.mock('nprogress', () => ({

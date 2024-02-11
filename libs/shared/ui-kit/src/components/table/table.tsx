@@ -39,7 +39,9 @@ const useTableMinHeight = () => {
 
   const result = useMemo(() => {
     const htmlFontSize = getHtmlFontSize();
+
     const itemHeight = htmlFontSize * DEFAULT_ITEM_HEIGHT;
+
     let itemCountBaseOnHeight = 0;
 
     switch (true) {

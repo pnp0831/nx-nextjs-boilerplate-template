@@ -1,6 +1,6 @@
 import { ReactQueryClient } from '@esp/contexts/react-query-context';
 import { render } from '@testing-library/react';
-import ThemeProvider from '@ui-kit/contexts/theme-context/index';
+import ThemeProvider from '@ui-kit/contexts/theme-context';
 import * as lodash from 'lodash';
 import { useSession } from 'next-auth/react';
 

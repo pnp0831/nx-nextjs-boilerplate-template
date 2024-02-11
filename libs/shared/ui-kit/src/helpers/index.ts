@@ -8,9 +8,14 @@ export const getHtmlFontSize = (): number => {
     return 16;
   }
 
-  return Number(
-    window.getComputedStyle(document.body).getPropertyValue('font-size').split('px')[0]
-  );
+  const htmlFontSize = window.getComputedStyle(document.body).getPropertyValue('font-size');
+
+  if (htmlFontSize.includes('px')) {
+    return Number(htmlFontSize.split('px')[0]);
+  }
+
+  // x default html
+  return Number(htmlFontSize.split('rem')[0]) * 16;
 };
 
 export const getAcronym = (name: string) => {

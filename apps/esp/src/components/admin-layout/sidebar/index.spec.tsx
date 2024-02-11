@@ -1,8 +1,9 @@
+import { mockCommonUser } from '@esp/__mocks__/data-mock';
 import { dataLayerPush } from '@esp/components/google-analyze';
 import { useAppContext } from '@esp/contexts/app-context';
 import useAuth from '@esp/hooks/useAuth';
 import { act, fireEvent, render } from '@testing-library/react';
-import ThemeProvider from '@ui-kit/contexts/theme-context/index';
+import ThemeProvider from '@ui-kit/contexts/theme-context';
 import { useSession } from 'next-auth/react';
 
 import Sidebar from '.';
@@ -34,6 +35,7 @@ jest.mock('@esp/hooks/useAuth', () => {
     default: jest.fn(() => ({
       signIn: jest.fn(),
       signOut: jest.fn(),
+      user: mockCommonUser,
     })),
   };
 });

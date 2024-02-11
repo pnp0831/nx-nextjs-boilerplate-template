@@ -1,3 +1,5 @@
+import { ITimePolicies } from '@esp/apis/time-management';
+
 export enum APP_ROUTE {
   LOGIN = '/login',
   STYLE_GUIDE = '/style-guide',
@@ -49,12 +51,12 @@ export const DATE_FORMAT = 'DD/MM/YYYY';
 
 export const MAXIMUM_TAKE_RECORD = 100000;
 
-// export const DEFAULT_TIME_POLICIES: ITimePolicies = {
-//   organizationId: '',
-//   branchId: '',
-//   statementDate: 15,
-//   allowedLateIn: 5,
-//   allowedEarlyOut: 5,
-//   minimumDurationPerLog: 5,
-//   maximumDurationPerLog: 600,
-// };
+export const DEFAULT_TIME_POLICIES: ITimePolicies = {
+  organizationId: '',
+  branchId: '',
+  statementDate: 15,
+  allowedLateIn: 5,
+  allowedEarlyOut: 5,
+  minimumDurationPerLog: 5,
+  maximumDurationPerLog: 600,
+};

@@ -1,0 +1,355 @@
+@import 'apps/esp/src/styles/_mixins.scss';
+@import 'apps/esp/src/styles/_variables.scss';
+
+$slot1hHeight: 3.2rem;
+
+.scheduler-calendar {
+  display: flex;
+
+  .external-events {
+    width: 350px;
+    background: $gray-light-color;
+  }
+
+  .calendar-container {
+    flex-grow: 1;
+    background: $white-color;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 1.5rem 1.5rem 0;
+    }
+
+    &__toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      &__button-group {
+        background: $white-color;
+        border: 1px solid $gray-medium-color;
+        border-radius: 0.25rem;
+        display: flex;
+        align-items: center;
+
+        div {
+          width: calc(2rem - 1px);
+          height: calc(2rem - 2px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      svg {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .full-calendar {
+    $padding: 1rem;
+
+    padding: 0 1rem 1rem 1rem;
+    --fc-border-color: #dedede;
+    --fc-event-bg-color: transparent;
+    --fc-event-border-color: transparent;
+    --fc-today-bg-color: transparent;
+
+    .fc-col-header {
+      overflow: hidden;
+    }
+
+    .fc-timegrid-slot {
+      height: 3.2rem;
+    }
+
+    &.slot15m .fc-timegrid-slot {
+      height: 2rem;
+    }
+
+    colgroup col {
+      // why use "!imporant" here, bc fullcalendar will apply inline style for this element.
+      width: 6.25rem !important;
+    }
+
+    // remove divider all slot
+    .fc-timegrid-divider.fc-cell-shaded {
+      display: none;
+    }
+
+    // border of table full calendar
+    .fc-scrollgrid.fc-scrollgrid-liquid {
+      border: none;
+    }
+
+    // header day
+    .fc-col-header {
+      .fc-timegrid-axis {
+        border: none;
+
+        &:after {
+          content: 'Time';
+          display: flex;
+          height: 100%;
+          align-items: center;
+          justify-content: center;
+          @include typo_bold_m;
+        }
+      }
+
+      .fc-col-header-cell.fc-day {
+        border: none;
+
+        .fc-col-header-cell-cushion {
+          padding: 0;
+          display: block;
+          margin: 0.75rem 0.5rem;
+        }
+
+        .fc-day-header-content {
+          background: #f5f7fb;
+          box-shadow: 0px 1px 0px $gray-medium-color;
+          border-radius: 10px;
+          padding: 0.5rem 0;
+          z-index: 1;
+          position: relative;
+
+          &.satAndSun {
+            background: transparent;
+          }
+
+          &.today {
+            background: rgb(204, 136, 58, 0.1);
+          }
+
+          &__icon {
+            position: absolute;
+            bottom: 0.25rem;
+            right: 0.25rem;
+            display: flex;
+
+            svg {
+              width: 0.8em;
+              height: 0.8em;
+            }
+          }
+
+          &__badge {
+            cursor: pointer;
+            background: #ffffff;
+            position: absolute;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+            border-radius: 0px 10px;
+            top: 0;
+            right: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            p {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    .fc-timegrid-event-harness-inset .fc-timegrid-event,
+    .fc-timegrid-event.fc-event-mirror,
+    .fc-timegrid-more-link {
+      border: none;
+      box-shadow: none;
+      margin: 1px 0;
+    }
+
+    .fc-timegrid-event .fc-event-main {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 1px 0.25rem 1px 0.5rem;
+
+      .eventDivider {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        height: 100%;
+        width: 2px;
+        top: 0;
+        left: 0;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+      }
+
+      .eventBackground {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: 2px;
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin-right: 0.25rem;
+        }
+      }
+
+      p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    // remove
+    .fc-theme-standard tr th:last-child,
+    .fc-theme-standard tr td:last-child {
+      border-right: none;
+    }
+
+    .fc-timegrid-slots {
+      tr {
+        td {
+          &:first-of-type {
+            // border-left: none;
+
+            .fc-timegrid-slot-label-frame {
+              @include typo_regular_s;
+              text-align: left;
+              width: max-content;
+              padding-inline-end: 0.25rem;
+              position: relative;
+              background: white;
+              top: -51%;
+            }
+          }
+        }
+
+        &:nth-child(2n) td {
+          // border: none
+        }
+      }
+    }
+
+    .fc-timeGridWeek-view {
+      tr.fc-scrollgrid-section > td {
+        border-bottom: none;
+      }
+
+      > table > tbody > tr > td .fc-scroller .fc-timegrid-body {
+        top: 0.5rem;
+
+        &::before {
+          content: '';
+          width: 100%;
+          height: 1px;
+          background: var(--fc-border-color);
+          position: absolute;
+          z-index: 1;
+          top: -1px;
+        }
+
+        .fc-timegrid-cols tbody tr:first-of-type {
+          .fc-day-sat:before,
+          .fc-day-sun:before {
+            content: '';
+            background: $gray-medium-color;
+            pointer-events: none;
+            position: absolute;
+            width: calc(100% - $padding + 1px);
+            height: 0.5rem;
+            z-index: 0;
+            left: 50%;
+            transform: translate(-50%);
+            top: -0.5rem;
+          }
+
+          .fc-day-sun:before {
+            width: calc(100% - $padding);
+          }
+        }
+      }
+    }
+
+    // overlay
+    .fc-day-sat,
+    .fc-day-sun {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        content: '';
+        background: $gray-medium-color;
+        pointer-events: none;
+        position: absolute;
+        width: calc(100% - $padding);
+        height: 100%;
+        z-index: 0;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &:not(.fc-col-header-cell):after {
+        border-bottom-right-radius: 0.625rem;
+        border-bottom-left-radius: 0.625rem;
+        width: calc(100% - $padding + 1px);
+      }
+
+      &.fc-col-header-cell:after {
+        border-top-right-radius: 0.625rem;
+        border-top-left-radius: 0.625rem;
+        top: $padding;
+      }
+    }
+  }
+}
+
+.fc-slot-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+
+  &-overlay {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > div {
+      width: 100%;
+      height: 100%;
+      border: 2px solid white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      svg {
+        border: 3px solid #ffffff;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.fc-external-event {
+  padding: 0.25rem 0.5rem;
+  width: max-content;
+  cursor: move;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}

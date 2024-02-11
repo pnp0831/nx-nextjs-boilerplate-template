@@ -7,14 +7,15 @@ import { IconButton } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { SelectChangeEvent } from '@mui/material/Select';
 import { useTheme } from '@mui/material/styles';
-import React, { ReactElement, ReactNode, useState } from 'react';
+import loOmit from 'lodash/omit';
+import React, { forwardRef, ReactElement, ReactNode, useState } from 'react';
 
 import { hexToRgb } from '../../helpers/index';
 import { ESPTooltip } from '../tooltip';
 import { SelectComponent } from './components';
 import { Chilren, ESPDropdownProps } from './type';
 
-export function ESPDropdown({
+function ESPDropdownComponent({
   children,
   placeholder,
   value: initValue = undefined,
@@ -68,7 +69,7 @@ export function ESPDropdown({
   return (
     <SelectComponent
       displayEmpty
-      {...props}
+      {...loOmit(props, ['errorMessage', 'error'])}
       value={value}
       open={open}
       onOpen={() => setOpen(true)}
@@ -163,5 +164,13 @@ export function ESPDropdown({
     </SelectComponent>
   );
 }
+
+export const ESPDropdown = forwardRef<unknown, ESPDropdownProps>(
+  (props: ESPDropdownProps, _ref) => {
+    return <ESPDropdownComponent {...props} />;
+  }
+);
+
+ESPDropdown.displayName = 'ESPDropdown';
 
 export default ESPDropdown;

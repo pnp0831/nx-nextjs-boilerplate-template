@@ -5,18 +5,18 @@ import appConfigs from '@esp/constants/config';
 import { AppClientConfigProvider } from '@esp/contexts/app-client-config-context';
 import { AuthContextProvider } from '@esp/contexts/auth-context';
 import { ReactQueryClient } from '@esp/contexts/react-query-context';
-// import { authOptions } from '@esp/libs/next-auth';
+import { authOptions } from '@esp/libs/next-auth';
 import ThemeContextProvider from '@ui-kit/contexts/theme-context';
 import pick from 'lodash/pick';
-// import { getServerSession } from 'next-auth';
+import { getServerSession } from 'next-auth';
 
 export const metadata = {
   title: 'Enterprise Service Platform',
   description: 'Enterprise Service Platform ( ESP )',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // const session = await getServerSession(authOptions);
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const session = await getServerSession(authOptions);
   const appClientConfig = pick(appConfigs, ['client', 'common']);
 
   return (
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <AppClientConfigProvider appConfigs={appClientConfig}>
           <ThemeContextProvider>
-            <AuthContextProvider session={null}>
+            <AuthContextProvider session={session}>
               <ReactQueryClient>{children}</ReactQueryClient>
             </AuthContextProvider>
           </ThemeContextProvider>

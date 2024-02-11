@@ -52,8 +52,6 @@ const Avatar = memo(({ sidebarOpen }: { sidebarOpen: boolean }) => {
   );
 });
 
-Avatar.displayName = 'Avatar';
-
 interface Menu {
   icon: React.ReactNode;
   name: string;
@@ -488,6 +486,7 @@ const Sidebar = memo(() => {
   );
 });
 
+Avatar.displayName = 'Avatar';
 Sidebar.displayName = 'Sidebar';
 
 export default Sidebar;

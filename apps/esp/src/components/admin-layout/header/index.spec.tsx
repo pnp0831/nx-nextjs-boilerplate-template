@@ -48,6 +48,7 @@ jest.mock('@mui/material/styles', () => ({
 jest.mock('next/navigation', () => ({
   ...jest.requireActual('next/navigation'),
   usePathname: () => '/example-pathname',
+  useServerInsertedHTML: jest.fn(),
 }));
 
 const lowerCaseMock = jest

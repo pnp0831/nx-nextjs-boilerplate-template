@@ -323,7 +323,7 @@ export const TableHeader = <T,>() => {
           if (extendsWidth > 0) {
             tableRef.current.scrollTo({
               left: tableRef.current.scrollLeft + extendsWidth,
-              top: tableRef.current.scrollTop,
+              top: tableRef.current.scrollTop || 0,
             });
           }
         }

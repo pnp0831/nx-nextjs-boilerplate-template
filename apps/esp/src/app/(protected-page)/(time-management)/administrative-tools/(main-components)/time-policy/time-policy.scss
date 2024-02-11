@@ -1,0 +1,45 @@
+@import 'apps/esp/src/styles/_variables.scss';
+
+.time-policy-form {
+  .MuiFormControl-root {
+    margin-right: 1rem;
+    min-width: 18rem;
+    max-width: 20rem;
+
+    .time-policy-form__label {
+      display: flex;
+      flex-direction: row;
+      gap: 0.25rem;
+      align-items: flex-end;
+    }
+
+    .esp-info-tooltip {
+      margin-bottom: 0.125rem;
+
+      .MuiSvgIcon-root {
+        height: 1.25rem;
+      }
+    }
+  }
+
+  .divider {
+    margin: 1.25rem 0;
+    height: 1px;
+    background-color: $gray-dark-color;
+  }
+
+  .form-handle-button-group {
+    margin-top: 2.5rem;
+    position: relative;
+
+    .MuiButtonBase-root {
+      width: 7rem;
+      margin-right: 1rem;
+      height: 2rem;
+    }
+  }
+
+  .esp-max-duration-field {
+    margin-right: 0;
+  }
+}

@@ -1,4 +1,6 @@
 import { AppContextProvider } from '@esp/contexts/app-context';
+import { ImportExportNotifierContextProvider } from '@esp/contexts/import-export-notifier-context';
+import { SignalRContextProvider } from '@esp/contexts/signalr-context';
 
 import Content from './content';
 import Header from './header';
@@ -10,11 +12,15 @@ interface AdminLayoutProps {
 
 const AdminLayout = ({ children }: AdminLayoutProps) => {
   return (
-    <AppContextProvider>
-      <Header />
-      <Sidebar />
-      <Content>{children}</Content>
-    </AppContextProvider>
+    <ImportExportNotifierContextProvider>
+      <AppContextProvider>
+        <SignalRContextProvider>
+          <Header />
+          <Sidebar />
+          <Content>{children}</Content>
+        </SignalRContextProvider>
+      </AppContextProvider>
+    </ImportExportNotifierContextProvider>
   );
 };
 

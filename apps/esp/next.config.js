@@ -21,7 +21,7 @@ const nextConfig = {
   output: process.env.NODE_ENV === 'production' ? 'standalone' : undefined,
   experimental: {
     // https://nextjs.org/docs/app/api-reference/next-config-js/optimizePackageImports
-    optimizePackageImports: ['lodash'],
+    optimizePackageImports: ['lodash/{{member}}'],
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'src/styles')],

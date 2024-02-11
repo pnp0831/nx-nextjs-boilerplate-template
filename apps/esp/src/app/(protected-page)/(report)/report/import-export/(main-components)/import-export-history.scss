@@ -1,0 +1,40 @@
+@import 'apps/esp/src/styles/_variables.scss';
+
+.esp-import-export-history-tab {
+  min-height: calc(100vh - 16.375rem);
+
+  .esp-tabpanel__children {
+    box-shadow: none;
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+  }
+}
+
+.esp-import-export-history-tag {
+  width: 5rem;
+
+  &-error {
+    width: 5rem;
+    background-color: $products-main;
+  }
+}
+
+p a.esp-import-export-history-download {
+  text-decoration: underline;
+  color: $primary-color;
+  background: transparent;
+  font-weight: 400;
+}
+
+p.esp-import-export-history-result {
+  margin-right: 0.25rem;
+
+  &-error {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.esp-import-export-history-notes {
+  color: $black-muted-color;
+}

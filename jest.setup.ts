@@ -38,6 +38,7 @@ Object.assign(global, {
 Object.assign(global, 'window', {
   dataLayer: [],
   gtag: jest.fn(),
+  open: jest.fn(),
 });
 
 type MessageHandler = (msg: string) => void;

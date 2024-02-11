@@ -1,0 +1,592 @@
+@import 'apps/esp/src/styles/_variables.scss';
+@import 'apps/esp/src/styles/_mixins.scss';
+
+$width: 3rem;
+
+.contentWrapper {
+  padding-left: 0.75rem;
+  margin: 0.25rem 0;
+}
+
+.greenColor {
+  color: $green-color;
+}
+
+.productsColor {
+  color: $products-main;
+}
+
+.timesheetContainer {
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+
+  .iconWarning {
+    position: absolute;
+    top: 0.125rem;
+    right: 0.4rem;
+
+    svg {
+      color: #cc883a;
+      font-size: 0.6rem;
+    }
+  }
+
+  .bgGrayLight {
+    background-color: #f6f6f9;
+  }
+
+  .timesheetHeader {
+    display: grid;
+
+    .timesheetHeaderToolbars {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 1rem;
+
+      .timesheetHeaderToolbarDate {
+        display: flex;
+        align-items: center;
+      }
+
+      .timesheetLogTimeButton {
+        margin-right: 0.5rem;
+      }
+
+      .timesheetToolbars {
+        display: flex;
+        align-items: center;
+
+        .timesheetToolbarsWrapperArrow {
+          border: 1px solid #e2e2ea;
+          border-radius: 0.25rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin: 0 0.5rem;
+        }
+
+        .timesheetSetting {
+          margin-left: 0.875rem;
+        }
+
+        .timesheetToolbarsArrow {
+          height: 2rem;
+          width: 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+
+          svg {
+            color: $black-muted-color;
+            font-size: 0.875rem;
+          }
+
+          &Active svg {
+            color: $black-color;
+          }
+
+          &:hover {
+            filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+          }
+        }
+      }
+    }
+
+    .timesheetHeaderInfo {
+      // width: 38%;
+      border-radius: 0.5rem 0 0 0;
+      padding: 1rem;
+      position: relative;
+      z-index: 1;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .timesheetTable {
+    .tableRowBody {
+      &:last-child td {
+        box-shadow: none;
+      }
+
+      .rowHasArrowExpanded {
+        z-index: 5;
+      }
+
+      td {
+        position: relative;
+        height: 3rem;
+        border-bottom: none;
+      }
+
+      &.cell {
+        transition: 0.3s;
+
+        td,
+        td > div {
+          transition: 0.3s;
+        }
+      }
+
+      &.cellExpaned {
+        transition: 0.6s;
+
+        td {
+          height: 0;
+          transition: 0.6s;
+          border: none;
+
+          p {
+            display: none;
+          }
+
+          > div {
+            max-height: 0;
+            margin: 0;
+            padding: 0;
+            height: 0;
+            transition: 0.6s;
+
+            > div:first-child {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    tr {
+      .tableCellSticky {
+        position: sticky;
+        left: 0;
+        z-index: 4;
+        border-bottom: none;
+
+        &.expandedCell:not(.rowHasArrowExpanded) {
+          &:first-of-type::after {
+            content: '';
+            position: absolute;
+            width: calc(100% - 1rem);
+            height: 1px;
+            box-shadow: 0 1px 0px $gray-medium-color;
+            bottom: 3rem;
+            right: 0;
+          }
+        }
+
+        &:not(.notExpandedCell) {
+          box-shadow: none;
+        }
+
+        &.notExpandedCell {
+          &:first-of-type::after {
+            content: '';
+            position: absolute;
+            width: calc(100% - 1rem);
+            height: 1px;
+            box-shadow: 0 1px 0px $gray-medium-color;
+            bottom: 3rem;
+            right: 0;
+          }
+        }
+      }
+
+      td:not(.expandedCell):not(.notExpandedCell):first-of-type:after {
+        content: '';
+        position: absolute;
+        width: calc(100% - 1rem);
+        height: 1px;
+        box-shadow: 0 1px 0px $gray-medium-color;
+        bottom: 3rem;
+      }
+
+      // first column
+      th.tableCellSticky:first-of-type {
+        z-index: 6;
+        padding: 0;
+        background: #f6f6f9;
+
+        > div {
+          padding: 0 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .tableCellInfo {
+          background: #ffffff;
+          padding: 0 1rem;
+          box-shadow: 0px 1px 0px $gray-medium-color;
+          border-radius: 0.3125rem;
+          border: 1px solid white;
+
+          height: 2.75rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: relative;
+          top: -1rem;
+        }
+
+        .tableCellInfoNotExtendHour {
+          margin-top: 0;
+        }
+      }
+
+      // second column in calendar
+
+      th,
+      td {
+        &:not(:first-of-type) {
+          > div {
+            padding: 0.25rem 0.2rem;
+            margin-left: 0.3rem;
+            margin-right: 0.3rem;
+            width: $width;
+            border-top-right-radius: 6px;
+            border-top-left-radius: 6px;
+
+            &:after {
+              content: '';
+              display: block;
+              width: $width;
+              height: 100%;
+              position: absolute;
+              background: $gray-medium-color;
+              top: 1rem;
+              z-index: -1;
+            }
+
+            &.tableCellContentNotWeekendNotExtendHour {
+              // margin-bottom: 1.625rem;
+            }
+          }
+        }
+
+        &:nth-child(2) > div {
+          margin-left: 1rem;
+
+          &::before {
+            transform: translateX(calc(-50% + 0.375rem));
+          }
+        }
+
+        &:last-child {
+          > div {
+            margin-right: 1rem;
+
+            .iconWarning {
+              right: 1.5rem;
+            }
+          }
+
+          // css for last calendar if weekend
+          &.tableCellWeekend {
+            > div:after {
+              // left: 1rem
+            }
+          }
+        }
+      }
+    }
+
+    thead tr th:nth-child(2) > div:after {
+      left: 1rem;
+    }
+
+    thead tr th:not(:nth-child(2)) > div:after {
+      left: 0.3rem;
+    }
+
+    thead tr th:not(:first-of-type) {
+      div {
+        margin-bottom: 1rem;
+
+        &:after {
+          border-top-right-radius: 6px;
+          border-top-left-radius: 6px;
+        }
+      }
+
+      .tableCellContentNotExtendHour {
+        margin-bottom: 1rem;
+        padding: 1rem 1.25rem;
+      }
+    }
+
+    thead tr th:not(.tableCellWeekend) > div:after {
+      display: none;
+    }
+
+    .tableCellContent {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    // sat and sun
+    .tableCellWeekend {
+      border-color: $gray-medium-color;
+    }
+
+    .tableCellGroup {
+      padding: 0;
+
+      > div {
+        margin: 0.625rem 1rem 0.55rem 1rem;
+        background: #ededed;
+        height: 95%;
+        display: grid;
+        align-items: center;
+        margin-right: 0;
+        padding-right: 1rem;
+
+        div:first-child {
+          padding-left: 1rem;
+        }
+
+        div:last-child {
+          padding-left: 1rem;
+        }
+      }
+    }
+
+    .tableCellContentNotWeekend {
+      background: #f5f7fb;
+      box-shadow: 0px 1px 0px $gray-medium-color;
+      border-radius: 6px;
+    }
+
+    .tableCellContentWeekend {
+      background: $gray-medium-color;
+    }
+
+    .tableCellContentWarning {
+      background: rgb(204, 136, 58, 0.1);
+    }
+
+    // css divider
+    .tableCellExtendHour > div:before {
+      content: '';
+      display: block;
+      width: 2.5rem;
+      background: #ededed;
+      height: 1px;
+      position: absolute;
+      top: 2.625rem;
+      left: 50%;
+      z-index: 1;
+      transform: translateX(-50%);
+    }
+
+    .tableCellExtendHourWeekend > div:before {
+      background: $white-muted-color;
+    }
+
+    .isTableHeaderToday:before {
+      content: '';
+      display: block;
+      width: calc(100% - 0.6rem);
+      height: calc(100% + 1px);
+      border: 1px solid var(--black-muted-color);
+      position: absolute;
+      left: 0.3rem;
+      border-radius: 6px 6px 0 0;
+      pointer-events: none;
+      border-bottom: 0;
+    }
+
+    td {
+      &.isTableCellToday:before {
+        content: '';
+        display: block;
+        width: calc(100% - 0.6rem);
+        height: 100%;
+        border: 1px solid var(--black-muted-color);
+        position: absolute;
+        left: 0.3rem;
+        pointer-events: none;
+        border-top: 0;
+        border-bottom: 0;
+      }
+
+      &.isSubtotalCell.isTableCellToday:before {
+        content: '';
+        display: block;
+        width: calc(100% - 0.6rem);
+        height: 100%;
+        border: 1px solid var(--black-muted-color);
+        position: absolute;
+        left: 0.3rem;
+        pointer-events: none;
+        border-top: 0;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+    }
+
+    // end css divider
+
+    // css cheat background
+    tbody tr {
+      .tableCellWeekend:not(.tableRowBodyNoBoder) > div {
+        z-index: 0;
+        background-color: $gray-medium-color;
+        margin-bottom: 0;
+        position: relative;
+
+        &:after {
+          background: $gray-medium-color;
+          top: -0.5rem;
+          left: 0;
+          z-index: -1;
+          // transform: translateX(-50%)
+        }
+      }
+
+      &:last-child td {
+        &.tableCellWeekend > div {
+          border-bottom-right-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+      }
+    }
+
+    // css for icon edit + add
+    .tableCellCalendar {
+      text-align: center;
+      padding: 0;
+      border-top: 1px solid #ececee;
+
+      &:not(.tableCellWeekend) {
+        cursor: pointer;
+      }
+
+      &:hover:not(.tableCellWeekend) {
+        .tableCellContent > div {
+          background: rgb(57, 68, 78, 0.1);
+
+          .tableCellContentAction {
+            display: flex;
+          }
+        }
+
+        p {
+          display: none;
+        }
+      }
+
+      &.tableCellRemoveHover:hover {
+        cursor: default;
+
+        .tableCellContent > div {
+          background: unset;
+        }
+
+        p {
+          display: block;
+        }
+      }
+
+      .tableCellContent {
+        margin-bottom: 0;
+
+        > div {
+          width: 95%;
+          height: 95%;
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 0.125rem;
+        }
+
+        .tableCellContentAction {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          display: none;
+
+          svg {
+            cursor: pointer;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    .tableRowBodyNoBoder td {
+      border: none;
+    }
+  }
+
+  .timesheetArrowIcon {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 2%);
+    z-index: 1;
+    cursor: pointer;
+    padding-left: 0 !important;
+
+    svg {
+      color: $installation-color;
+      font-size: 0.875rem;
+      transform: rotate(0deg);
+      top: 0.25rem;
+      position: relative;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 16px 14px 16px;
+      border-color: transparent transparent #ffffff transparent;
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+
+    &Expanded {
+      bottom: -1rem;
+      transform: translate(-50%, 0%);
+
+      @include responsive-small-screen {
+        transform: translate(-50%, 10%);
+      }
+
+      svg {
+        transform: rotate(180deg);
+        top: 0;
+      }
+
+      &:after {
+        border-width: 14px 16px 0 16px;
+        border-color: #ffffff transparent transparent transparent;
+      }
+    }
+  }
+
+  &::after {
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+}
+
+.skeleton {
+  width: 100%;
+  min-width: 0.875rem;
+  font-size: 1rem;
+}

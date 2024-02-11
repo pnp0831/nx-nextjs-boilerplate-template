@@ -5,12 +5,11 @@ import { dataLayerPush } from '@esp/components/google-analyze';
 import useAuth from '@esp/hooks/useAuth';
 import { email, IRHFInput, required, sanitizeRules } from '@esp/utils/rhf-validation';
 // import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import MUILink from '@mui/material/Link';
 import { ESPButton } from '@ui-kit/components/button';
 import { ESPCard } from '@ui-kit/components/card';
 import { ESPCheckbox } from '@ui-kit/components/checkbox';
-import { ESPFormControl } from '@ui-kit/components/form-control';
+import { ESPFormControl, ESPFormControlLabel } from '@ui-kit/components/form-control';
 import { ESPInput, ESPInputPassword } from '@ui-kit/components/text-input';
 import { ESPTypography } from '@ui-kit/components/typography';
 import Image from 'next/image';
@@ -111,7 +110,7 @@ const Login = () => {
               control={control}
               render={({ field }) => (
                 <>
-                  <FormControlLabel
+                  <ESPFormControlLabel
                     control={<ESPCheckbox size="medium" {...field} />}
                     label="Keep me sign in"
                   />

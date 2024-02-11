@@ -1,0 +1,39 @@
+@import 'apps/esp/src/styles/_mixins.scss';
+@import 'apps/esp/src/styles/_variables.scss';
+
+.esp-attendance-log-action {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  width: 100%;
+
+  @include responsive-xl-down {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  &_input {
+    flex-grow: 1;
+  }
+
+  &_date-range-picker {
+    width: 15rem;
+
+    > div,
+    > div > div {
+      width: 15rem;
+    }
+  }
+
+  &_buttons {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.625rem;
+    margin-bottom: 0.125rem;
+  }
+}
+
+.esp-attendance-log-notify {
+  text-decoration: underline;
+  color: $white-color;
+}

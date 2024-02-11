@@ -11,7 +11,12 @@ import Toolbar from '@mui/material/Toolbar';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { ESPTypography } from '@ui-kit/components/typography';
 import lowerCase from 'lodash/lowerCase';
+import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
+
+import Notification from './notification';
+
+const ImportExportNotifier = dynamic(() => import('./import-export-notifier'), { ssr: false });
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -107,6 +112,9 @@ const Header = () => {
         >
           {title}
         </ESPTypography>
+
+        <ImportExportNotifier />
+        <Notification />
       </ToolbarComponent>
     </AppBar>
   );

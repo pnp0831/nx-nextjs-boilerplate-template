@@ -3,6 +3,7 @@
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
+import React from 'react';
 
 import { ESPTooltip } from '../tooltip';
 import { ESPTextFieldProps } from './type';
@@ -90,7 +91,7 @@ const TextFieldComponent = styled(
   };
 });
 
-export function ESPTextField({ InputProps, ...props }: ESPTextFieldProps) {
+export const ESPTextField = React.forwardRef(({ InputProps, ...props }: ESPTextFieldProps, ref) => {
   let { endAdornment } = InputProps || {};
 
   if (props.ownerState?.error) {
@@ -118,4 +119,4 @@ export function ESPTextField({ InputProps, ...props }: ESPTextFieldProps) {
       }}
     />
   );
-}
+});

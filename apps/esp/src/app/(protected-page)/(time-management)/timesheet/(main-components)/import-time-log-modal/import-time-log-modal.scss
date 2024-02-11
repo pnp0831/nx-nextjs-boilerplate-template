@@ -1,0 +1,57 @@
+.stepper-wrapper {
+  background: var(--gray-light-color);
+  border-radius: 0.5rem;
+  box-shadow: var(--boxshadow-small);
+  padding: 0.75rem 1.25rem;
+
+  p {
+    padding-bottom: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+
+  .circle-loading {
+    position: absolute;
+    top: -5px;
+  }
+}
+
+.esp-close-modal-animation {
+  &-opacity0 .MuiPaper-root {
+    opacity: 0;
+  }
+
+  .MuiPaper-root {
+    animation-name: flying-to-icon;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+    position: absolute;
+    animation-timing-function: cubic-bezier(0.42, 0, 0.27, 1);
+  }
+}
+
+@keyframes flying-to-icon {
+  from {
+    border-radius: 0.25rem;
+    width: 100%;
+    max-height: 100%;
+    filter: brightness(1);
+  }
+
+  50% {
+    border-radius: 3rem;
+    width: 100%;
+    max-height: 3.75rem;
+    filter: brightness(8);
+  }
+
+  to {
+    border-radius: 2rem;
+    width: 3.75rem;
+    max-height: 3.75rem;
+    filter: brightness(8);
+  }
+}

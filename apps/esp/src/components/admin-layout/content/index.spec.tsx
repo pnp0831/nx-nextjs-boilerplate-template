@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import ThemeProvider from '@ui-kit/contexts/theme-context/index';
+import ThemeProvider from '@ui-kit/contexts/theme-context';
 
 import Content from '.';
 
