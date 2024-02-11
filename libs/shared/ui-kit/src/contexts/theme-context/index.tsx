@@ -20,7 +20,7 @@ dayjs.extend(isSameOrBefore);
 
 type ThemeContextProps = AppRouterCacheProviderProps;
 
-const ThemeContextProvider = ({ children, options }: ThemeContextProps) => {
+export const ThemeContextProvider = ({ children, options }: ThemeContextProps) => {
   return (
     <AppRouterCacheProvider
       options={{

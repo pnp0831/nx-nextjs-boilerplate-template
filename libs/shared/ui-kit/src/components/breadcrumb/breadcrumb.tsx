@@ -12,7 +12,6 @@ export const ESPBreadcrumbs = memo(
           if (href) {
             if (Component) {
               return (
-                // @ts-expect-error: IGNORE
                 <Component href={href} key={name}>
                   {name}
                 </Component>

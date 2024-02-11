@@ -85,6 +85,7 @@ export const ListboxComponent = forwardRef<HTMLDivElement, React.HTMLAttributes<
             ref={gridRef}
             outerRef={outerRef}
             innerElementType="ul"
+            // @ts-expect-error: IGNORE
             outerElementType={OuterElementType}
             itemSize={() => itemSize}
             itemCount={itemCount}
@@ -105,7 +106,7 @@ export const ListboxComponent = forwardRef<HTMLDivElement, React.HTMLAttributes<
                 event.scrollOffset + listboxNode.clientHeight >= listboxNode.scrollHeight &&
                 shouldLoadData
               ) {
-                await loadData();
+                loadData();
               }
             }}
           >
@@ -159,6 +160,7 @@ export const VirtualScrollingComponent = forwardRef<
           ref={gridRef}
           outerRef={outerRef}
           innerElementType="ul"
+          // @ts-expect-error: IGNORE
           outerElementType={OuterElementType}
           itemSize={() => itemSize}
           itemCount={itemCount}
@@ -176,7 +178,7 @@ export const VirtualScrollingComponent = forwardRef<
               event.scrollOffset + listboxNode.clientHeight >= listboxNode.scrollHeight &&
               shouldLoadData
             ) {
-              await loadData();
+              loadData();
             }
           }}
         >

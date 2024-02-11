@@ -1,0 +1,180 @@
+@import 'apps/esp/src/styles/_mixins.scss';
+@import 'apps/esp/src/styles/_variables.scss';
+
+.overlay-item {
+  position: absolute;
+  content: '';
+  width: 0.625rem;
+  right: -20%;
+  z-index: -4;
+  background: $background;
+  top: 0;
+  height: 0;
+  transition: right 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:after {
+    position: absolute;
+    top: -2px;
+    right: 0px;
+    background: #354053;
+    height: 0.625rem;
+    width: 0.625rem;
+
+    z-index: -2;
+    border-bottom-right-radius: 0.625rem;
+    content: '';
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0px;
+    background: #354053;
+    height: 0.625rem;
+    width: 0.625rem;
+    z-index: -1;
+    border-top-right-radius: 0.625rem;
+  }
+
+  &__active {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: calc(100% + 1rem);
+    transition: right 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__openCollapse {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    height: calc(100% + 1rem);
+    transition: right 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.overlay-collapse {
+  position: absolute;
+  content: '';
+  width: 0.625rem;
+  right: 0;
+  z-index: -1;
+  background: $white-color;
+  top: 0;
+
+  &__openCollapse {
+    height: calc(100% + 0.625rem);
+    transition: right 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:before {
+    position: absolute;
+    top: -2px;
+    right: 0px;
+    background: $background;
+    height: 10px;
+    width: 10px;
+    z-index: -2;
+    content: '';
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    background: #354053;
+    height: 0.625rem;
+    width: 0.625rem;
+    z-index: -1;
+    border-top-right-radius: 0.625rem;
+  }
+}
+
+.overlay-before {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.625rem;
+  top: -0.625rem;
+  right: 0;
+  background: $background;
+  z-index: -1;
+
+  &__reverse {
+    top: unset;
+    bottom: -0.625rem;
+  }
+}
+
+.overlay-after {
+  position: absolute;
+  width: 1.25rem;
+  height: 0.625rem;
+  top: -0.625rem;
+  right: 2px;
+  background: #354053;
+  border-radius: 1.25rem;
+  z-index: 0;
+
+  &__reverse {
+    top: unset;
+    bottom: -0.625rem;
+  }
+}
+
+.hide-sidebar-icon {
+  visibility: hidden;
+}
+
+.MuiTooltip-tooltipArrow.MuiTooltip-tooltipPlacementRight.MuiTooltip-tooltip.sidebar-tooltip {
+  text-transform: capitalize;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 0.625rem;
+  padding: 0.5rem 0;
+  min-width: 5rem;
+  text-align: center;
+  background: $white-color;
+  margin-left: 0;
+
+  @include typo_regular_m;
+
+  div:hover {
+    background-color: unset;
+
+    strong,
+    svg {
+      color: $primary-color;
+    }
+  }
+
+  hr {
+    border-color: $gray-medium-color;
+    width: calc(100% - 2rem);
+    margin: 0.5rem auto;
+  }
+
+  strong,
+  a {
+    color: #39444e;
+    cursor: pointer;
+    display: flex;
+  }
+
+  svg {
+    color: $gray-dark-color;
+    width: 0.8em;
+    margin-left: 0.5rem;
+  }
+
+  .child-active {
+    strong,
+    svg {
+      color: $primary-color;
+    }
+  }
+
+  .MuiTooltip-arrow {
+    color: $white-color;
+  }
+}

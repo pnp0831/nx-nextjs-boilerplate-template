@@ -160,7 +160,7 @@ const tabs_content = [
               label: 'notes',
             },
           ]}
-          // @ts-ignore
+          // @ts-expect-error: IGNORE
           data={tabsContent}
           totalItems={tabsContent.length}
         />
@@ -172,7 +172,7 @@ const tabs_content = [
   },
 ];
 
-function StyleGuide({ children }: { children: ReactNode }) {
+function StyleGuide({ children }: { children?: ReactNode }) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
@@ -962,7 +962,6 @@ function StyleGuide({ children }: { children: ReactNode }) {
               },
             ]}
             totalItems={100000}
-            // @ts-ignore
             data={Array.from(Array(100000)).map((item, id) => ({
               name: `Nguyen Ngoc Phuong Thao ${id + 1}`,
               type: 'Annual leave (2 days)',
@@ -1042,7 +1041,6 @@ function StyleGuide({ children }: { children: ReactNode }) {
                 align: 'right',
               },
             ]}
-            // @ts-ignore
             data={Array.from(Array(100000)).map((item, id) => ({
               name: `Nguyen Ngoc Phuong Thao ${id + 1}`,
               type: 'Annual leave (2 days)',
@@ -1111,7 +1109,7 @@ function StyleGuide({ children }: { children: ReactNode }) {
                 align: 'right',
               },
             ]}
-            // @ts-ignore
+            // @ts-expect-error: IGNORE
             data={data_table}
             sx={{
               maxHeight: '30rem',
@@ -1125,7 +1123,7 @@ function StyleGuide({ children }: { children: ReactNode }) {
             showPagination={false}
             showTableHeader={false}
             data={data_table}
-            // @ts-ignore
+            // @ts-expect-error: IGNORE
             columns={columns_table}
             sx={{
               maxHeight: '30rem',
@@ -1179,7 +1177,7 @@ function StyleGuide({ children }: { children: ReactNode }) {
         <Stack spacing={4} direction="row">
           {['bottom', 'left', 'right', 'top'].map((item) => {
             return (
-              // @ts-ignore
+              // @ts-expect-error: IGNORE
               <ESPTooltip key={item} placement={item} title={item}>
                 <ESPButton color="primary">{item}</ESPButton>
               </ESPTooltip>

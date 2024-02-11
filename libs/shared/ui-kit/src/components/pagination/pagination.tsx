@@ -34,8 +34,6 @@ export function ESPPagination({
       renderItem={(item: PaginationRenderItemParams) => {
         const paginationProps = item as PaginationItemProps;
         return (
-          // TODO: define type
-          // @ts-expect-error: IGNORE
           <PaginationItem
             {...paginationProps}
             slots={{

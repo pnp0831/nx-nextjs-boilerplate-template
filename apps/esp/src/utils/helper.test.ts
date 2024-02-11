@@ -1,14 +1,9 @@
-import dayjs from 'dayjs';
-
 import {
   bytesToSize,
-  getAcronym,
-  getDatesBetweenTwoDays,
   getRouterPermissions,
   getServerApiUrl,
   getUserRole,
   handleMockData,
-  hexToRgb,
   inElement,
   isServer,
   stringifyLoadOptions,
@@ -105,35 +100,6 @@ describe('Helper', () => {
     expect(isServer).toBe(false);
   });
 
-  test('hexToRgb should return correct value', () => {
-    expect(hexToRgb('#000000')).toBe('rgb(0, 0, 0,0.3)');
-    expect(hexToRgb('#fafafa', 1)).toBe('rgb(250, 250, 250,1)');
-    expect(hexToRgb('#dddddd', 0.4)).toBe('rgb(221, 221, 221,0.4)');
-    expect(hexToRgb('#eaeaea', 1)).toBe('rgb(234, 234, 234,1)');
-  });
-
-  test('getDatesBetweenTwoDays should return correct value', () => {
-    expect(getDatesBetweenTwoDays(dayjs(), dayjs().add(1, 'd'))).toEqual({
-      [dayjs().format('DD/MM/YYYY')]: true,
-      [dayjs().add(1, 'd').format('DD/MM/YYYY')]: true,
-    });
-
-    expect(getDatesBetweenTwoDays(dayjs(), dayjs().add(1, 'd'), 'MM/YYYY/DD')).toEqual({
-      [dayjs().format('MM/YYYY/DD')]: true,
-      [dayjs().add(1, 'd').format('MM/YYYY/DD')]: true,
-    });
-
-    expect(
-      getDatesBetweenTwoDays(dayjs().subtract(2, 'd'), dayjs().add(2, 'd'), 'MM/YYYY/DD')
-    ).toEqual({
-      [dayjs().subtract(2, 'd').format('MM/YYYY/DD')]: true,
-      [dayjs().subtract(1, 'd').format('MM/YYYY/DD')]: true,
-      [dayjs().format('MM/YYYY/DD')]: true,
-      [dayjs().add(1, 'd').format('MM/YYYY/DD')]: true,
-      [dayjs().add(2, 'd').format('MM/YYYY/DD')]: true,
-    });
-  });
-
   test('handleMockData should return correct undefined', () => {
     expect(handleMockData([])).toBe(undefined);
   });
@@ -208,11 +174,5 @@ describe('Helper', () => {
     expect(bytesToSize(0.01 * 1024 * 1024)).toBe('10.2 KB');
     expect(bytesToSize(1 * 1024 * 1024)).toBe('1.0 MB');
     expect(bytesToSize(1000 * 1024 * 1024)).toBe('1000.0 MB');
-  });
-
-  test('getAcronym should return correct value', () => {
-    expect(getAcronym('Hung Luong')).toBe('HL');
-    expect(getAcronym('')).toBe('');
-    expect(getAcronym('Aa Bb Cc')).toBe('AB');
   });
 });

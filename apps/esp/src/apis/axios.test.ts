@@ -1,11 +1,5 @@
 import request from './axios';
 
-const mockGetCookie = jest.fn().mockReturnValue('yourAccessToken');
-
-jest.mock('cookies-next', () => ({
-  getCookie: mockGetCookie,
-}));
-
 jest.mock('next-auth/jwt', () => ({
   decode: jest.fn().mockReturnValue({
     accessToken: 'yourAccessToken',

@@ -1,4 +1,5 @@
 import { BreadcrumbsProps } from '@mui/material/Breadcrumbs';
+import React from 'react';
 
 export interface Breadcrumb {
   href?: string;
@@ -7,5 +8,5 @@ export interface Breadcrumb {
 
 export interface ESPBreadcrumbsProps extends BreadcrumbsProps {
   breadcrumbs: Breadcrumb[];
-  component?: unknown;
+  component?: React.ElementType;
 }

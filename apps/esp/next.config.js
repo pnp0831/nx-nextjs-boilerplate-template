@@ -1,4 +1,5 @@
 const { composePlugins, withNx } = require('@nx/next');
+const path = require('path');
 
 /**
  * @type {import('next').NextConfig}
@@ -20,7 +21,10 @@ const nextConfig = {
   output: process.env.NODE_ENV === 'production' ? 'standalone' : undefined,
   experimental: {
     // https://nextjs.org/docs/app/api-reference/next-config-js/optimizePackageImports
-    // optimizePackageImports:[]
+    optimizePackageImports: ['lodash'],
+  },
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'src/styles')],
   },
 };
 

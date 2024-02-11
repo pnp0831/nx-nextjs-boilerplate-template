@@ -476,6 +476,7 @@ export function ESPTable<T>({
             width={'100%'}
             itemSize={() => itemHeight}
             itemCount={visibleRows.length}
+            // @ts-expect-error: IGNORE
             outerElementType={OuterElement}
             ref={gridRef}
             itemData={visibleRows}

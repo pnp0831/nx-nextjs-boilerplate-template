@@ -1,0 +1,66 @@
+@import 'apps/esp/src/styles/_variables.scss';
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  gap: 2.5rem;
+
+  &__logo {
+    width: 9rem;
+    height: 5.625rem;
+    object-fit: cover;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 23.75rem;
+
+    &__checkbox {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    &__input {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    &__button {
+      width: 100%;
+    }
+
+    &__info {
+      margin-top: 1rem;
+      text-align: center;
+
+      span {
+        margin-left: 0.25rem;
+        cursor: pointer;
+        line-height: 1.5rem;
+      }
+    }
+  }
+
+  &__gotoback {
+    color: $black-color;
+
+    span {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    svg {
+      margin-right: 0.25rem;
+    }
+  }
+}

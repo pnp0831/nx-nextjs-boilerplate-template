@@ -88,7 +88,6 @@ export const ESPDaterangepicker = forwardRef(
             // Add custom slotsProps
             // @ts-expect-error: IGNORE
             dateRange: values,
-            // @ts-expect-error: IGNORE
             format,
             onChange: handleOnChange,
           },
