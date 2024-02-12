@@ -13,3 +13,5 @@ export const ESPTypography = (props: TypographyProps & { component?: string }) =
     />
   );
 };
+
+export default ESPTypography;

@@ -122,3 +122,5 @@ export const NotifyContextProvider = ({ children }: SnackbarContextProviderProps
     </SnackbarContext.Provider>
   );
 };
+
+export default NotifyContextProvider;

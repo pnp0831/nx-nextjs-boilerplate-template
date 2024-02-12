@@ -62,3 +62,5 @@ export function ESPTooltip({
     </Tooltip>
   );
 }
+
+export default ESPTooltip;

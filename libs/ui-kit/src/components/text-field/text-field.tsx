@@ -120,3 +120,5 @@ export const ESPTextField = React.forwardRef(({ InputProps, ...props }: ESPTextF
     />
   );
 });
+
+export default ESPTextField;

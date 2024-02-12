@@ -21,11 +21,11 @@ import { ListChildComponentProps, VariableSizeList } from 'react-window';
 
 import { getHtmlFontSize } from '../../helpers/index';
 import { ESPCheckbox } from '../checkbox/checkbox';
-import { getComparator, stableSortWithPaging } from './helpers';
 import { TableContainerComponent } from './components';
 import { OuterElement, useResetCache, VirtualTableContextProvider } from './components';
 import { TablePageSize } from './components/page-size';
 import { TablePagination } from './components/pagination';
+import { getComparator, stableSortWithPaging } from './helpers';
 import { Column, Data } from './type';
 import { ESPTableProps, ISettingColumns, Order } from './type';
 

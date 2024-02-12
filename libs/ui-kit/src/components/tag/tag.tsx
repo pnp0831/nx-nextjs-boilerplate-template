@@ -6,3 +6,5 @@ import { ESPChipProps } from './type';
 export const ESPTag = (props: ESPChipProps) => {
   return <ChipComponent {...props} />;
 };
+
+export default ESPTag;

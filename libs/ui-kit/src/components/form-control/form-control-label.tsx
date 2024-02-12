@@ -17,4 +17,6 @@ export const ESPFormControlLabel = forwardRef<unknown, ESPFormControlLabelProps>
   }
 );
 
+export default ESPFormControlLabel;
+
 ESPFormControlLabel.displayName = 'ESPFormControlLabel';

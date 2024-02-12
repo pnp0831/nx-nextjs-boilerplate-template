@@ -29,3 +29,5 @@ export function ESPLoading({ loading, container, hasContainer, sx }: ESPLoadingP
     </Box>
   );
 }
+
+export default ESPLoading;

@@ -78,3 +78,5 @@ export const ESPInputPassword = React.forwardRef((props: ESPInputProps, ref) => 
 });
 
 ESPInputPassword.displayName = 'ESPInputPassword';
+
+export default ESPInput;

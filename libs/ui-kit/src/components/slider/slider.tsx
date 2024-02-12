@@ -7,3 +7,5 @@ import { SliderComponent } from './components';
 export function ESPSlider(props: SliderProps) {
   return <SliderComponent {...props} />;
 }
+
+export default ESPSlider;

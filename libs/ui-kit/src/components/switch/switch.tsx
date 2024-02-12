@@ -7,3 +7,5 @@ import { IOSSwitch } from './components';
 export function ESPSwitch(props: SwitchProps) {
   return <IOSSwitch {...props} />;
 }
+
+export default ESPSwitch;
