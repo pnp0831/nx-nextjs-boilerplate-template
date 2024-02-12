@@ -21,7 +21,7 @@ import { ListChildComponentProps, VariableSizeList } from 'react-window';
 
 import { getHtmlFontSize } from '../../helpers/index';
 import { ESPCheckbox } from '../checkbox/checkbox';
-import { getComparator, stableSortWithPaging } from '../table/helpers';
+import { getComparator, stableSortWithPaging } from './helpers';
 import { TableContainerComponent } from './components';
 import { OuterElement, useResetCache, VirtualTableContextProvider } from './components';
 import { TablePageSize } from './components/page-size';
