@@ -6,7 +6,7 @@ export const AlertComponent = styled(Alert)<AlertProps>(({ theme, severity }) =>
     warning: theme.palette.warning.main,
     error: theme.palette.error.main,
     success: theme.palette.success.main,
-    info: '#333333',
+    info: theme.palette.black.main,
   }[severity as string];
 
   return {

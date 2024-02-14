@@ -1,3 +1,5 @@
+'use client';
+
 import { createTheme } from '@mui/material/styles';
 import type * as CSS from 'csstype';
 import { Lato } from 'next/font/google';
@@ -28,7 +30,7 @@ export enum ESP_COLORS {
   INSTALLATION = 'cc883a',
 }
 
-const DEFAULT_FONT = Lato({
+const DEFAULT_FONT = Lato?.({
   weight: ['100', '300', '400', '700', '900'],
   subsets: ['latin'],
   display: 'swap',
@@ -111,7 +113,7 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: DEFAULT_FONT.style.fontFamily,
+    fontFamily: DEFAULT_FONT?.style?.fontFamily,
     h1: {
       fontSize: '2.5rem',
       lineHeight: '3rem',

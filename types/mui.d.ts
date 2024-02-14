@@ -1,4 +1,6 @@
-export declare module '@mui/material/styles' {
+import { SimplePaletteColorOptions } from '@mui/material';
+
+declare module '@mui/material/styles' {
   interface TypographyVariants {
     bold_xl: React.CSSProperties;
     bold_l: React.CSSProperties;
@@ -58,7 +60,7 @@ export declare module '@mui/material/styles' {
 }
 
 // Update the Typography's variant prop options
-export declare module '@mui/material/Typography' {
+declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     button: false;
     caption: false;
