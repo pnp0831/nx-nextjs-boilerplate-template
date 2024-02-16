@@ -1,7 +1,7 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { SnackbarProvider } from 'notistack';
 
-import { NotifyContextProvider, useNotify } from './index';
+import { useNotify } from './index';
+import ThemeContextProvider from '../theme-context';
 
 describe('NotifyContextProvider', () => {
   test('notifySuccess should enqueue a snackbar with the provided message', async () => {
@@ -20,11 +20,9 @@ describe('NotifyContextProvider', () => {
     };
 
     render(
-      <SnackbarProvider>
-        <NotifyContextProvider>
-          <TestComponent />
-        </NotifyContextProvider>
-      </SnackbarProvider>
+      <ThemeContextProvider>
+        <TestComponent />
+      </ThemeContextProvider>
     );
 
     const showNotifyButton = screen.getByRole('button', { name: 'Show Notify' });
@@ -57,11 +55,9 @@ describe('NotifyContextProvider', () => {
     };
 
     render(
-      <SnackbarProvider>
-        <NotifyContextProvider>
-          <TestComponent />
-        </NotifyContextProvider>
-      </SnackbarProvider>
+      <ThemeContextProvider>
+        <TestComponent />
+      </ThemeContextProvider>
     );
 
     const showNotifyButton = screen.getByRole('button', { name: 'Show Error' });
@@ -94,11 +90,9 @@ describe('NotifyContextProvider', () => {
     };
 
     render(
-      <SnackbarProvider>
-        <NotifyContextProvider>
-          <TestComponent />
-        </NotifyContextProvider>
-      </SnackbarProvider>
+      <ThemeContextProvider>
+        <TestComponent />
+      </ThemeContextProvider>
     );
 
     const showNotifyButton = screen.getByRole('button', { name: 'Show Error' });
@@ -131,11 +125,9 @@ describe('NotifyContextProvider', () => {
     };
 
     render(
-      <SnackbarProvider>
-        <NotifyContextProvider>
-          <TestComponent />
-        </NotifyContextProvider>
-      </SnackbarProvider>
+      <ThemeContextProvider>
+        <TestComponent />
+      </ThemeContextProvider>
     );
 
     const showNotifyButton = screen.getByRole('button', { name: 'Show Error' });
