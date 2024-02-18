@@ -26,9 +26,9 @@ export const PUBLIC_PATH = [
 
 export const REFRESH_TOKEN_ERROR = 'RefreshAccessTokenError';
 
-export interface IDefaultPageProps {
-  params?: IParams;
-  searchParams?: ISearchParams;
+export interface IDefaultPageProps<P = object, S = object> {
+  params?: IParams & P;
+  searchParams?: ISearchParams & S;
 }
 
 export interface IParams {
