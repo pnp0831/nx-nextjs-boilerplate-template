@@ -1,9 +1,18 @@
 import ThemeProvider from '@ui-kit/contexts/theme-context';
 import { render, screen } from '@testing-library/react';
 
-import { ESPTextField } from './text-field';
+import TextField, { ESPTextField } from './text-field';
 
 describe('Text field', () => {
+  it('should render default successfully with default export', () => {
+    const { baseElement } = render(
+      <ThemeProvider>
+        <TextField />
+      </ThemeProvider>
+    );
+    expect(baseElement).toBeTruthy();
+  });
+
   it('should render default successfully', () => {
     const { baseElement } = render(
       <ThemeProvider>

@@ -4,10 +4,19 @@ import PersonIcon from '@mui/icons-material/Person';
 import InputAdornment from '@mui/material/InputAdornment';
 import { fireEvent, render } from '@testing-library/react';
 
-import { ESPInput, ESPInputPassword } from './text-input';
+import Input, { ESPInput, ESPInputPassword } from './text-input';
 
 describe('Text Input', () => {
   it('should render default successfully', () => {
+    const { baseElement } = render(
+      <ThemeProvider>
+        <Input />
+      </ThemeProvider>
+    );
+    expect(baseElement).toBeTruthy();
+  });
+
+  it('should render default successfully with default export', () => {
     const { baseElement } = render(
       <ThemeProvider>
         <ESPInput />

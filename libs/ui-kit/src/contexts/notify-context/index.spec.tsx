@@ -2,8 +2,33 @@ import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 
 import { useNotify } from './index';
 import ThemeContextProvider from '../theme-context';
+import NotifyContextProvider from './index';
 
 describe('NotifyContextProvider', () => {
+  test('NotifyContextProvider should render successfully with default export', async () => {
+    const TestComponent = () => {
+      const notify = useNotify();
+
+      const handleShowNotify = () => {
+        notify.notifySuccess('Test message');
+      };
+
+      return (
+        <div>
+          <button onClick={handleShowNotify}>Show Notify</button>
+        </div>
+      );
+    };
+
+    const { baseElement } = render(
+      <NotifyContextProvider>
+        <TestComponent />
+      </NotifyContextProvider>
+    );
+
+    expect(baseElement).not.toBeNull();
+  });
+
   test('notifySuccess should enqueue a snackbar with the provided message', async () => {
     const TestComponent = () => {
       const notify = useNotify();

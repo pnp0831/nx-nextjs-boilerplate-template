@@ -12,4 +12,13 @@ describe('ESPTimeField', () => {
     );
     expect(baseElement).toBeTruthy();
   });
+
+  it('should render successfully with error', () => {
+    const { baseElement } = render(
+      <ThemeProvider>
+        <ESPTimeField error />
+      </ThemeProvider>
+    );
+    expect(baseElement).toBeTruthy();
+  });
 });

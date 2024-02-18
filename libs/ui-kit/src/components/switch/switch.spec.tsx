@@ -1,9 +1,18 @@
 import ThemeProvider from '@ui-kit/contexts/theme-context';
 import { render, screen } from '@testing-library/react';
 
-import { ESPSwitch } from '.';
+import Switch, { ESPSwitch } from './switch';
 
 describe('ESPSwitch', () => {
+  it('should render successfully wth default export', () => {
+    const { baseElement } = render(
+      <ThemeProvider>
+        <Switch />
+      </ThemeProvider>
+    );
+    expect(baseElement).toBeTruthy();
+  });
+
   it('should render successfully', () => {
     const { baseElement } = render(
       <ThemeProvider>
