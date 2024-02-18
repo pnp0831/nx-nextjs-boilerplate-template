@@ -4,7 +4,7 @@ import { JWT } from 'next-auth/jwt/types';
 
 // Preferred approach: reacthustle.com/blog/how-to-chain-multiple-middleware-functions-in-nextjs
 export interface MiddlewareData {
-  token?: JWT;
+  token?: JWT | null;
   renewedToken?: string;
 }
 
@@ -17,7 +17,7 @@ export declare type NextMiddleware = (
 export type MiddlewareFactory = (middleware: NextMiddleware) => NextMiddleware;
 
 export interface MiddlewareData {
-  token?: JWT;
+  token?: JWT | null;
   response?: NextResponse;
 }
 

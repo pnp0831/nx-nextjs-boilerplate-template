@@ -8,7 +8,7 @@ const withPermissions: MiddlewareFactory =
   (next) => async (req: NextRequest, _next: NextFetchEvent, data: MiddlewareData) => {
     let response = NextResponse.next();
 
-    const nextAuthCookieName = appConfigs.server.nextAuthName;
+    const cookieName = appConfigs.server.nextAuthName;
 
     const { token, renewedToken } = data;
 
@@ -29,7 +29,7 @@ const withPermissions: MiddlewareFactory =
     }
 
     if (renewedToken) {
-      response.cookies.set(nextAuthCookieName, renewedToken);
+      response.cookies.set(cookieName, renewedToken);
     }
 
     return response;

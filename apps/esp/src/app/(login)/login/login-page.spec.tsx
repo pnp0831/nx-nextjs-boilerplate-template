@@ -51,7 +51,7 @@ describe('Login page', () => {
     const email = 'phpham@example.com';
     const mockSignIn = jest.fn();
 
-    useAuth.mockReturnValue({
+    (useAuth as jest.Mock).mockReturnValue({
       signIn: mockSignIn,
       signOut: jest.fn(),
       user: mockCommonUser,
