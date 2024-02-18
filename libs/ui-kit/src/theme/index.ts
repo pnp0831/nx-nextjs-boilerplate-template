@@ -30,7 +30,7 @@ export enum ESP_COLORS {
   INSTALLATION = 'cc883a',
 }
 
-const DEFAULT_FONT = Lato?.({
+const DEFAULT_FONT = Lato({
   weight: ['100', '300', '400', '700', '900'],
   subsets: ['latin'],
   display: 'swap',
